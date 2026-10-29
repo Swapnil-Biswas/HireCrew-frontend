@@ -27,8 +27,8 @@ const AGENTS: Agent[] = [
 ];
 
 const LINKS: [number, number][] = [
-  [0, 1], [0, 9], [0, 13], [1, 2], [1, 11], [2, 3], [2, 12], [3, 4], [3, 13], [4, 12],
-  [5, 6], [5, 7], [6, 7], [7, 8], [8, 9], [8, 10], [9, 11], [10, 11], [10, 12], [0, 6], [4, 5], [1, 13],
+  [0, 1], [0, 9], [0, 13], [0, 6], [0, 11], [1, 2], [1, 11], [1, 13], [2, 3], [2, 12], [3, 4], [3, 13],
+  [5, 6], [5, 7], [5, 4], [6, 7], [7, 8], [7, 9], [7, 10], [8, 10], [9, 11], [10, 11], [10, 12],
 ];
 
 const DOT_COUNT = 1000;
@@ -464,7 +464,7 @@ export default function AgentGlobe() {
         <span className="globe__kind">{agent.kind}</span>
         <strong>{agent.name}</strong>
         <span className="globe__job">{agent.job}</span>
-        <span className="globe__meta">Linked to {connections} other agents · illustrative</span>
+        <span className="globe__meta">Linked to {connections} other agents</span>
       </div>
       <ul className="sr-only">
         {AGENTS.map((a) => (
