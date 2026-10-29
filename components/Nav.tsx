@@ -115,7 +115,7 @@ export default function Nav() {
       <div className="nav__progress" ref={progressRef} aria-hidden="true" />
       <div className="wrap nav__inner">
         <Link className="brand" href="/" aria-label="HireCrew home">
-          <Image src="/brand/hirecrew-logo.png" alt="" width={120} height={120} priority />
+          <Image src="/brand/hirecrew-logo.png" alt="" width={200} height={200} priority />
         </Link>
         <GooeyNav
           className="nav__gooey"
