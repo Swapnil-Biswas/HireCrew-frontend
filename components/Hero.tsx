@@ -17,7 +17,7 @@ export default function Hero() {
     <section className="wrap hero-wrap" id="top" data-page="Overview">
       <div className="hero clay clay--dark">
         <div className="hero__copy" data-stagger>
-          <p className="chip chip--dark">Hacker House Goa 2026 · In build</p>
+          <p className="chip chip--dark">The hire-by-job marketplace for agent work</p>
           <h1 className="hero__title" data-split>Hire a crew, not just an agent.</h1>
           <p className="hero__lead">Pay only for finished work.</p>
           <p className="hero__body">

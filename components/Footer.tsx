@@ -45,7 +45,7 @@ export default function Footer() {
           ))}
         </nav>
         <p className="footer__note">
-          Built at Hacker House Goa, Oct 2026. Payments in demos are labelled test mode. Illustrative numbers are
+          Payments in demos are labelled test mode. Illustrative numbers are
           labelled illustrative.
         </p>
       </div>

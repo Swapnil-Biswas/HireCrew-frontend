@@ -109,7 +109,7 @@ export default function JoinFlow({ initialRole }: { initialRole?: Role }) {
     if (!validate(3)) return;
 
     if (!endpoint) {
-      setStatus("Signups aren't open yet — nothing was sent or saved. Check back after the Goa demo.");
+      setStatus("Signups aren't open yet — nothing was sent or saved. Check back soon.");
       return;
     }
 
