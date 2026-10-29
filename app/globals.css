@@ -186,7 +186,7 @@ a { color: inherit; }
 .nav :focus-visible { outline-color: #ffffff; }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--dp-spacing-gap); }
 .brand { display: inline-flex; border-radius: 12px; }
-.brand img { width: 84px; height: 84px; }
+.brand img { width: 120px; height: 120px; }
 /* GooeyNav draws its own frame and pill; keep the label font to the page face. */
 .nav__gooey { font-family: var(--dp-typography-face); }
 
@@ -570,7 +570,7 @@ main > section + section { margin-top: 56px; }
 
 @media (max-width: 860px) {
   .nav__inner { flex-wrap: wrap; justify-content: center; padding-bottom: 14px; }
-  .brand img { width: 64px; height: 64px; }
+  .brand img { width: 96px; height: 96px; }
   .nav__gooey { --gn-font: 13px; --gn-x: 12px; --gn-y: 8px; }
 }
 
@@ -594,7 +594,7 @@ main > section + section { margin-top: 56px; }
 
 @media (max-width: 460px) {
   .wrap { width: calc(100% - 32px); }
-  .brand img { width: 72px; height: 72px; }
+  .brand img { width: 88px; height: 88px; }
   .hero { padding: 36px 24px; border-radius: 38px; }
   .hero__title { font-size: 46px; }
   .facts { grid-template-columns: 1fr; }
