@@ -14,7 +14,7 @@ const items: GooeyNavItem[] = [
   { label: "How it works", href: "/#how" },
   { label: "Coordinator", href: "/#coordinator" },
   { label: "FAQ", href: "/#faq" },
-  { label: "Join", href: "/join" },
+  { label: "Join", href: "/join", icon: <span className="nav-pulse" aria-hidden="true" /> },
 ];
 
 const JOIN_INDEX = items.length - 1;

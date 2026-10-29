@@ -892,3 +892,83 @@ main > section + section { margin-top: 56px; }
   .marquee__viewport { overflow-x: auto; }
   .nav__progress { transform: none; display: none; }
 }
+
+/* ---------- Vermillion accent ---------- */
+/* #E34222, used sparingly, only for things that move or signal. It is 3.5:1 against cream (fine for
+   graphics) but 1.6:1 against emerald and ~3.5:1 with cream text on it, so it never carries text,
+   and where it sits on emerald it gets a cream outline. Meaning is never colour alone: every use
+   also has a shape or a label (an X, the word "blocked", "Refunded", a count). */
+:root {
+  --hc-vermillion: #E34222;
+  --hc-vermillion-hi: #F7A08A;   /* light side of a clay sphere */
+  --hc-vermillion-lo: #A92C12;   /* shaded side */
+}
+
+/* Scroll progress under the nav: vermillion with a cream tip, so it reads on the emerald bar */
+.nav__progress {
+  height: 3px;
+  background: linear-gradient(90deg, var(--hc-vermillion) 0%, var(--hc-vermillion) 90%, #F9EBD7 100%);
+  box-shadow: 0 0 12px rgba(227, 66, 34, .55);
+}
+
+/* Page dots: the current page is the vermillion one */
+.page-dots__item[aria-current="true"] .page-dots__dot {
+  background: var(--hc-vermillion);
+  box-shadow: 0 0 0 2px rgba(249, 235, 215, .9), 0 0 12px rgba(227, 66, 34, .6);
+}
+
+/* Nav: a pulsing dot marks Join as the thing to do */
+.nav-pulse {
+  display: block; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--hc-vermillion);
+  box-shadow: 0 0 0 1.5px #F9EBD7, 0 0 0 0 rgba(227, 66, 34, .6);
+  animation: nav-pulse 2.2s ease-out infinite;
+}
+@keyframes nav-pulse {
+  0% { box-shadow: 0 0 0 1.5px #F9EBD7, 0 0 0 0 rgba(227, 66, 34, .65); }
+  70%, 100% { box-shadow: 0 0 0 1.5px #F9EBD7, 0 0 0 9px rgba(227, 66, 34, 0); }
+}
+
+/* Hero: the one warm object, a clay sphere floating under the video */
+.deco--dot {
+  width: 50px; height: 50px; bottom: -74px;
+  background: radial-gradient(circle at 30% 28%, var(--hc-vermillion-hi) 0%, var(--hc-vermillion) 48%, var(--hc-vermillion-lo) 100%);
+  box-shadow: 0 16px 20px -8px rgba(1, 38, 20, .75), 0 0 26px rgba(227, 66, 34, .35);
+}
+
+/* Video placeholder: vermillion rings pulse out of the play button (against the deep-emerald screen) */
+.video__pulse { border-color: rgba(227, 66, 34, .9); }
+
+/* Ticker separators */
+.marquee__item::after {
+  background: var(--hc-vermillion);
+  box-shadow: inset 2px 2px 3px rgba(255, 248, 236, .5), inset -2px -2px 3px rgba(120, 25, 5, .45);
+}
+
+/* How it works: the lit step's number gets a vermillion ring */
+.step.is-lit .step__n {
+  box-shadow: 0 0 0 3px var(--hc-vermillion), 0 0 18px rgba(227, 66, 34, .5), 0 8px 14px -6px rgba(1, 38, 20, .5);
+}
+
+/* Benchmark: failed runs are vermillion with a cream outline (readable on the emerald card) */
+.run--fail { background: var(--hc-vermillion); box-shadow: 0 0 0 2px #F9EBD7; }
+
+/* Coordinator: refunded and failed */
+.state--refunded { background: transparent; box-shadow: inset 0 0 0 2px var(--hc-vermillion); }
+.row--failed { position: relative; }
+.row--failed::before {
+  content: ""; position: absolute; left: 9px; top: 50%; width: 4px; height: 28px; margin-top: -14px;
+  border-radius: 2px; background: var(--hc-vermillion);
+}
+
+/* Safety: the blocked call is the vermillion one */
+.gw-packet--no { fill: var(--hc-vermillion); stroke: #F9EBD7; }
+.gw-x { stroke: var(--hc-vermillion); }
+
+/* Join flow: progress, the chosen option's dot, and the success check */
+.flow__dot--on { background: var(--hc-vermillion); box-shadow: 0 0 10px rgba(227, 66, 34, .45); }
+.choice__dot::after { background: var(--hc-vermillion); }
+.flow__check { stroke: var(--hc-vermillion); }
+
+/* Play-button rings: a full-strength stroke with a glow, so they stay vivid as they fade over the dark screen */
+.video__pulse { border: 3px solid var(--hc-vermillion); box-shadow: 0 0 14px rgba(227, 66, 34, .55); }
