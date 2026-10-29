@@ -1,7 +1,6 @@
 import Link from "next/link";
-import VideoFrame from "./VideoFrame";
+import AgentGlobe from "./AgentGlobe";
 import Marquee from "./Marquee";
-import { videos } from "@/lib/media";
 
 type Fact = { title: string; body: string; tone: "support" | "warm" | "cool" | "compare" };
 
@@ -34,12 +33,10 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero__video" data-reveal>
-          <span className="deco deco--sphere" aria-hidden="true" data-speed="0.8" />
-          <span className="deco deco--pill" aria-hidden="true" data-speed="1.25" />
-          <span className="deco deco--ring" aria-hidden="true" data-speed="0.9" />
-          <span className="deco deco--dot" aria-hidden="true" data-speed="1.15" />
-          <VideoFrame src={videos.hero} title="HireCrew overview video" placeholder="Overview video coming soon" />
+        <div className="hero__globe">
+          <div className="globe-reveal" data-reveal>
+            <AgentGlobe />
+          </div>
         </div>
       </div>
 
