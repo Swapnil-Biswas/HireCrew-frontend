@@ -573,9 +573,12 @@ main > section + section { margin-top: 56px; }
 }
 
 @media (max-width: 860px) {
-  .nav__inner { flex-wrap: wrap; justify-content: center; padding-bottom: 14px; }
-  .brand { --logo: 64px; }
-  .nav__gooey { --gn-font: 13px; --gn-x: 12px; --gn-y: 8px; }
+  /* The top bar shrinks to the logo; the links live in the bottom dock */
+  .nav__inner { justify-content: center; }
+  .brand { --logo: 60px; }
+  .nav__gooey { display: none; }
+  .dock { display: grid; }
+  #smooth-content { padding-bottom: calc(104px + env(safe-area-inset-bottom, 0px)); }
 }
 
 @media (max-width: 760px) {
@@ -598,7 +601,6 @@ main > section + section { margin-top: 56px; }
 
 @media (max-width: 460px) {
   .wrap { width: calc(100% - 32px); }
-  .brand { --logo: 72px; }
   .hero { padding: 36px 24px; border-radius: 38px; }
   .hero__title { font-size: 46px; }
   .facts { grid-template-columns: 1fr; }
@@ -680,6 +682,36 @@ main > section + section { margin-top: 56px; }
 .video__play.glass { box-shadow: inset 0 0 18px rgba(255,255,255,.18), 0 16px 26px -10px rgba(0,0,0,.8); }
 .video__play::after { border-left-color: #fff; }
 
+/* ---------- Mobile dock ---------- */
+/* A floating glass pill along the bottom edge, like the iOS dock. Hidden above 860px. */
+.dock {
+  display: none;
+  position: fixed; z-index: 60; left: 12px; right: 12px; margin-inline: auto; max-width: 440px;
+  bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 2px;
+  padding: 7px; border-radius: 30px;
+  background: linear-gradient(135deg, rgba(44,44,48,.82), rgba(10,10,12,.8));
+  box-shadow: inset 0 0 22px rgba(255,255,255,.12), 0 18px 40px -10px rgba(0,0,0,.7);
+}
+.dock__item {
+  position: relative; display: grid; justify-items: center; align-content: center; gap: 3px;
+  min-height: 54px; padding: 6px 0 5px; border-radius: 22px;
+  color: rgba(255,255,255,.78); text-decoration: none;
+  transition: background-color var(--dp-motion-interaction) ease, color var(--dp-motion-interaction) ease, transform var(--dp-motion-interaction) ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.dock__icon { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.dock__item:first-child .dock__icon path { fill: currentColor; }
+.dock__label { font-size: 10.5px; font-weight: 600; letter-spacing: .01em; line-height: 1; }
+.dock__item[aria-current="page"] {
+  color: #151515;
+  background: linear-gradient(180deg, #fff, #e4e4e6);
+  box-shadow: 0 6px 12px -4px rgba(0,0,0,.55), inset 0 1px 0 #fff;
+}
+.dock__item:active { transform: scale(.92); }
+.dock :focus-visible { outline-color: #fff; outline-offset: -2px; }
+@media (max-width: 860px) { .dock { display: grid; } }
+
 /* ---------- Page dots ---------- */
 .page-dots {
   position: fixed; right: 18px; top: 50%; transform: translateY(-50%); z-index: 40;
@@ -709,7 +741,7 @@ main > section + section { margin-top: 56px; }
 .page-dots__item:hover .page-dots__label,
 .page-dots__item:focus-visible .page-dots__label { opacity: 1; transform: translate(0, -50%); }
 .page-dots :focus-visible { outline-color: #fff; }
-@media (max-width: 760px) { .page-dots { display: none; } }
+@media (max-width: 860px) { .page-dots { display: none; } }
 
 /* ---------- Motion ---------- */
 /* Everything below is decoration. The global prefers-reduced-motion rule earlier in this file turns

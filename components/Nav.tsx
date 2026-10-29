@@ -17,6 +17,26 @@ const items: GooeyNavItem[] = [
   { label: "Join", href: "/join" },
 ];
 
+// Shorter labels and an icon for each item, in the same order, for the dock.
+const dockLabels = ["Demo", "Bench", "How", "Crew", "FAQ", "Join"];
+const dockIcons = [
+  <path key="demo" d="M8 5.5v13l11-6.5z" />,
+  <path key="bench" d="M5 20V11M12 20V5M19 20v-6" />,
+  <path key="how" d="M5 7h14M5 12h14M5 17h9" />,
+  <g key="crew">
+    <circle cx="12" cy="12" r="2.6" />
+    <circle cx="5" cy="6" r="1.8" />
+    <circle cx="19" cy="6" r="1.8" />
+    <circle cx="12" cy="20" r="1.8" />
+    <path d="M10 10.2 6.3 7.3M14 10.2l3.7-2.9M12 14.6v3.6" />
+  </g>,
+  <g key="faq">
+    <circle cx="12" cy="12" r="8.5" />
+    <path d="M9.6 9.6a2.5 2.5 0 1 1 3.6 2.2c-.8.4-1.2.9-1.2 1.8M12 16.6v.1" />
+  </g>,
+  <path key="join" d="M5 12h13M13 6l6 6-6 6" />,
+];
+
 const JOIN_INDEX = items.length - 1;
 // Section ids behind the first five items, in the same order, for the scroll highlight.
 const sectionIds = ["demo", "verified", "how", "coordinator", "faq"];
@@ -111,6 +131,7 @@ export default function Nav() {
   }, [pathname]);
 
   return (
+    <>
     <header className="nav" ref={headerRef}>
       <div className="nav__progress" ref={progressRef} aria-hidden="true" />
       <div className="wrap nav__inner">
@@ -139,5 +160,26 @@ export default function Nav() {
         />
       </div>
     </header>
+    {/* Phones and small tablets: the links move to a floating glass dock at the bottom, like the iOS dock. */}
+    <nav className="dock glass glass--dark" aria-label="Primary">
+      {items.map((item, i) => (
+        <Link
+          key={item.label}
+          href={item.href ?? "/"}
+          className="dock__item"
+          aria-current={i === active ? "page" : undefined}
+          onClick={() => {
+            lockUntil.current = performance.now() + 1100;
+            setActive(i);
+          }}
+        >
+          <svg className="dock__icon" viewBox="0 0 24 24" aria-hidden="true">
+            {dockIcons[i]}
+          </svg>
+          <span className="dock__label">{dockLabels[i]}</span>
+        </Link>
+      ))}
+    </nav>
+    </>
   );
 }

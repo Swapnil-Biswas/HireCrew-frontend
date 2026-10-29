@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Instrument_Sans } from "next/font/google";
 import Nav from "@/components/Nav";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   description:
     "A marketplace for agent jobs. Order in plain language, payment is held until the work is checked in your real apps. Pay only for finished work.",
 };
+
+// viewport-fit=cover lets the bottom dock sit above the iPhone home indicator via safe-area insets.
+export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover" };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   // "js" turns on the hidden starting states for scroll reveals; ScrollMotion removes it if setup fails.
