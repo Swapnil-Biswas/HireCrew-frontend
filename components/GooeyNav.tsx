@@ -277,7 +277,6 @@ export type GooeyNavProps = {
   theme?: Palette;
   color?: string;
   activeTextColor?: string;
-  hoverColor?: string;
   colors?: string[];
   size?: keyof typeof SIZES;
   frame?: boolean;
@@ -301,7 +300,6 @@ const GooeyNav = ({
   theme = "dark",
   color,
   activeTextColor,
-  hoverColor,
   colors = [],
   size = "md",
   frame = true,
@@ -339,7 +337,7 @@ const GooeyNav = ({
     hoverEffect,
     pillRgb,
     tints: colors.map(parse),
-    hoverRgb: parse(hoverColor ?? PILLS[palette].hover),
+    hoverRgb: parse(PILLS[palette].hover),
     shadow: PILLS[palette].shadow,
   };
   const settingsRef = useRef(settings);

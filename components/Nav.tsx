@@ -14,22 +14,20 @@ const items: GooeyNavItem[] = [
   { label: "How it works", href: "/#how" },
   { label: "Coordinator", href: "/#coordinator" },
   { label: "FAQ", href: "/#faq" },
-  { label: "Join", href: "/join", icon: <span className="nav-pulse" aria-hidden="true" /> },
+  { label: "Join", href: "/join" },
 ];
 
 const JOIN_INDEX = items.length - 1;
 // Section ids behind the first five items, in the same order, for the scroll highlight.
 const sectionIds = ["demo", "verified", "how", "coordinator", "faq"];
 
-// The default dark theme is purple-tinted, so the frame is re-tinted here as a translucent cream
-// glass tray on the emerald bar (the glass blur and refraction live in globals.css).
+// Greys only: the default dark theme is purple-tinted, so the frame is re-tinted here as a
+// translucent glass tray (the glass blur and refraction live in globals.css).
 const frameTheme = {
-  "--gn-frame": "rgba(255, 248, 236, 0.05)",
-  "--gn-frame-edge": "rgba(255, 248, 236, 0.22)",
-  "--gn-frame-highlight": "rgba(255, 248, 236, 0.55)",
-  "--gn-frame-shadow": "inset 0 0 20px rgba(255,248,236,.1), 0 12px 26px -12px rgba(1,38,20,.9)",
-  "--gn-ink": "#F9EBD7",
-  "--gn-muted": "#F9EBD7",
+  "--gn-frame": "rgba(255, 255, 255, 0.07)",
+  "--gn-frame-edge": "rgba(255, 255, 255, 0.2)",
+  "--gn-frame-highlight": "rgba(255, 255, 255, 0.55)",
+  "--gn-frame-shadow": "inset 0 0 20px rgba(255,255,255,.1), 0 12px 26px -12px rgba(0,0,0,.9)",
 } as CSSProperties;
 
 export default function Nav() {
@@ -128,9 +126,6 @@ export default function Nav() {
             setActive(index);
           }}
           theme="dark"
-          color="#F9EBD7"
-          activeTextColor="#046A38"
-          hoverColor="rgba(249, 235, 215, 0.14)"
           size="md"
           frame
           particleCount={15}

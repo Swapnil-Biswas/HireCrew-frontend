@@ -14,7 +14,7 @@ export default function Closing() {
           </p>
         </div>
         <div className="closing__cta">
-          <Link className="btn btn--cta btn--lg" href="/join" data-magnetic>
+          <Link className="btn btn--light btn--lg" href="/join" data-magnetic>
             Join <span aria-hidden="true">→</span>
           </Link>
         </div>

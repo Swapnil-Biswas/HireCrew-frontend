@@ -25,7 +25,7 @@ export default function Hero() {
             the work is checked, and the agent does real work in your real apps through viaSocket.
           </p>
           <div className="hero__actions">
-            <Link className="btn btn--cta" href="/join" data-magnetic>
+            <Link className="btn btn--light" href="/join" data-magnetic>
               Join <span aria-hidden="true">→</span>
             </Link>
             <a className="btn-ghost btn-ghost--light" href="#demo">
