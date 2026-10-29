@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Instrument_Sans } from "next/font/google";
 import Nav from "@/components/Nav";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -13,6 +13,10 @@ const instrument = Instrument_Sans({
   variable: "--font-instrument",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  themeColor: "#046A38",
+};
 
 export const metadata: Metadata = {
   title: "HireCrew — Hire a crew, not just an agent",
